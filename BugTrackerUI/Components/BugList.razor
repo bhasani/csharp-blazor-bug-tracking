@@ -16,11 +16,11 @@
             <td>@bug.Description</td>
             <td>@bug.Priority</td>
         </tr>
-
     }
 </table>
 
 @code {
+
     [Inject]
     public IBugService BugService { get; set; }
 
@@ -28,7 +28,6 @@
 
     protected override void OnInitialized()
     {
-       
-        BugService.GetBugs().OrderBy(x => x.Priority);
+        Bugs = BugService.GetBugs().OrderBy(x => x.Priority).ToList();
     }
 }
